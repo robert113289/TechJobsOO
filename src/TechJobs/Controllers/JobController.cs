@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Nelibur.ObjectMapper;
 using TechJobs.Data;
+using TechJobs.Models;
 using TechJobs.ViewModels;
 
 namespace TechJobs.Controllers
@@ -19,8 +21,10 @@ namespace TechJobs.Controllers
         public IActionResult Index(int id)
         {
             // TODO #1 - get the Job with the given ID and pass it into the view
-
-            return View();
+            TinyMapper.Bind<NewJobViewModel, Job>();
+            var newJobViewModel = TinyMapper.Map<NewJobViewModel>(jobData.Find(id));
+           
+            return View(newJobViewModel);
         }
 
         public IActionResult New()
