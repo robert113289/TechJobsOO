@@ -40,5 +40,7 @@ namespace TechJobs.ViewModels
             // collections needed in the view
 
         }
+
+        
     }
 }

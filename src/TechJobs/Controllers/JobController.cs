@@ -4,6 +4,7 @@ using TechJobs.Data;
 using TechJobs.Models;
 using TechJobs.ViewModels;
 
+
 namespace TechJobs.Controllers
 {
     public class JobController : Controller
@@ -20,11 +21,11 @@ namespace TechJobs.Controllers
         // The detail display for a given Job at URLs like /Job?id=17
         public IActionResult Index(int id)
         {
-            // TODO #1 - get the Job with the given ID and pass it into the view
-            TinyMapper.Bind<NewJobViewModel, Job>();
-            var newJobViewModel = TinyMapper.Map<NewJobViewModel>(jobData.Find(id));
-           
-            return View(newJobViewModel);
+            // TODONE #1 - get the Job with the given ID and pass it into the view
+
+            Job job = jobData.Find(id);
+
+            return View(job);
         }
 
         public IActionResult New()
